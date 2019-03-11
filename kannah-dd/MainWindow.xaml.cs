@@ -1,6 +1,8 @@
-﻿using System;
+﻿using kannah_dd.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -23,21 +25,25 @@ namespace kannah_dd
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        List<LangItem> languages { get; set; } = new List<LangItem>();
+        private DashConfig config;
+        public List<DashFeed> languages { get; set; } = new List<DashFeed>();
         public MainWindow()
         {
             InitializeComponent();
+            this.config = new DashConfig();
+            this.languages = config.getFeeds();
             this.Title = Assembly.GetExecutingAssembly().GetName().Name;
-            this.languages.Add(new LangItem()
-            {
-                name = "Angular"
-            });
             this.DataContext = this;
         }
 
-    }
-    internal class LangItem
-    {
-        internal string name { get; set; }
+        private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Debug.WriteLine("settings click");
+        }
     }
 }

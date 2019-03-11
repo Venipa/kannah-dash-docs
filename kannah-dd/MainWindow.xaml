@@ -4,34 +4,78 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:kannah_dd"
-        mc:Ignorable="d" Height="450" Width="800">
+        xmlns:Commands="clr-namespace:kannah_dd.Commands"
+        mc:Ignorable="d"
+        Height="450" Width="800">
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static Commands:MenuSettingsCommands.SettingsMenu}" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed" />
+    </Window.CommandBindings>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="230" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0" Margin="8">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="30"/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="1">
-                <TreeView ItemsSource="{Binding languages}">
-                    <TreeView.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding name}" />
-                        </DataTemplate>
-                    </TreeView.ItemTemplate>
-                </TreeView>
-            </Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Menu>
+                <MenuItem Header="Extras">
+                    <MenuItem.Icon>
+                        <Image Source="Resources/Icons/Settings/Settings_16x.png" />
+                    </MenuItem.Icon>
+                    <MenuItem Command="{x:Static Commands:MenuSettingsCommands.SettingsMenu}">
+                        <MenuItem.Icon>
+                            <Image Source="Resources/Icons/Settings/Settings_16x.png" />
+                        </MenuItem.Icon>
+                        <MenuItem.Header>
+                            Settings
+                        </MenuItem.Header>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
         </Grid>
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid Margin="8" Grid.Row="1"></Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="230" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Margin="8">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="64"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <StackPanel>
+                        <Label VerticalAlignment="Top">Search</Label>
+                        <TextBox Height="24" VerticalContentAlignment="Center" VerticalAlignment="Top" />
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <TreeView ItemsSource="{Binding languages}">
+                        <TreeView.ItemTemplate>
+                            <HierarchicalDataTemplate DataType="{x:Type TreeViewItem}">
+                                <StackPanel DataContext="{Binding}">
+                                    <TextBlock Text="{Binding Name}" />
+                                </StackPanel>
+                            </HierarchicalDataTemplate>
+                        </TreeView.ItemTemplate>
+                    </TreeView>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ProgressBar Grid.Column="0" Margin="0 4" />
+                    <TextBlock Foreground="#af000000" Grid.Column="1" Text="OK" VerticalAlignment="Center" Margin="8 0" TextAlignment="Right"/>
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Margin="8" Grid.Row="1"></Grid>
+            </Grid>
         </Grid>
     </Grid>
 </Window>
