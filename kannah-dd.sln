@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kannah-dd", "kannah-dd\kannah-dd.csproj", "{3DBA9DEE-7C37-46F9-90CB-9275EE5ECB6E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3DBA9DEE-7C37-46F9-90CB-9275EE5ECB6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DBA9DEE-7C37-46F9-90CB-9275EE5ECB6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DBA9DEE-7C37-46F9-90CB-9275EE5ECB6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DBA9DEE-7C37-46F9-90CB-9275EE5ECB6E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3D847D2B-1A8D-4A89-B15D-2FDE2DCF5ED4}
+	EndGlobalSection
+EndGlobal
